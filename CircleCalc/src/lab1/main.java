@@ -12,6 +12,9 @@ public class main {
 		daraalal.add(66);
 		System.out.println(daraalal.isEmpty());
 		System.out.println(daraalal.getHeadData());
+		System.out.println(daraalal.getTailData());
+		System.out.println(daraalal.remove());
+		System.out.println(daraalal.size());
 	}
 
 }

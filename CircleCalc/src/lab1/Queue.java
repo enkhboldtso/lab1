@@ -11,6 +11,7 @@ public class Queue {
 	
 	private Node head;
 	private Node tail;
+	private int size;
 	
 	public boolean isEmpty( ) {
 		return head == null;
@@ -24,9 +25,25 @@ public class Queue {
 		if(head == null) {
 			head = node;
 		}
+		size++;
 	}
 	public int getHeadData() {
 		return head.data;
+	}
+	public int getTailData() {
+		return tail.data;
+	}
+	public int remove() {
+		int data = head.data;
+		head = head.next;
+		if(head==null) {
+			tail = null;
+		}
+		size--;
+		return data;
+	}
+	public int size() {
+		return size;
 	}
 	
 }
