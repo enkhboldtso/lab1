@@ -1,14 +1,14 @@
 package lab1;
 
-public class Queue {
-	private static class Node {
-		private int data;
+public class Queue<T> {
+	private static class Node<T> {
+		private T data;
 		private Node next;
-		private Node(int data) {
+		public Node(T data) {
 			this.data = data;
 		}
 	}
-	
+
 	private Node head;
 	private Node tail;
 	private int size;
@@ -16,8 +16,9 @@ public class Queue {
 	public boolean isEmpty( ) {
 		return head == null;
 	}
-	public void add(int data) {
-		Node node = new Node(data);
+	public void add(T data) {
+		
+		Node<T> node = new Node<T>(data);
 		if(tail != null) {
 			tail.next = node;
 		}
@@ -26,15 +27,17 @@ public class Queue {
 			head = node;
 		}
 		size++;
+		System.out.println(tail.data);
 	}
-	public int getHeadData() {
-		return head.data;
+	
+	public T getHeadData() {
+		return (T) head.data;
 	}
-	public int getTailData() {
-		return tail.data;
+	public T getTailData() {
+		return (T) tail.data;
 	}
-	public int remove() {
-		int data = head.data;
+	public T remove() {
+		T data = (T) head.data;
 		head = head.next;
 		if(head==null) {
 			tail = null;
